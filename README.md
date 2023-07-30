@@ -19,6 +19,7 @@ To run this on your local machine.
 node index.js
 ```
 These are some Screenshot
+![Screenshot of Todo-list](relative/path/in/repository/to/image.svg)
 
 ## Build With
 
