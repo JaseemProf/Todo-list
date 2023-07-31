@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/Version-1.0.0-blue)
+![version](https://img.shields.io/badge/Version-1.5.0-blue)
 # 📗 Table of Contents
 - [About this project](#todo-list)
   - [Build With](#build-with)
@@ -17,6 +17,7 @@ It's a simple Todo-list Application that you can write down things you need to d
 
 * ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 * ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+* ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## Installation
 To install this project on your local machine.
@@ -27,6 +28,10 @@ After that install the dependencies using npm.
 
 ```bash
 npm install
+```
+Paste your Cluster URL ``index.js``, To get the URL [Click ME](https://www.youtube.com/watch?v=jXgJyuBeb_o)
+```javascript
+const URL = ""; // Paste your URL from MongoDB Atlas
 ```
 
 ## Usage 
@@ -46,7 +51,10 @@ After that goto the browser and type this Url ``localhost:3000``
 - LinkedIn: [LinkedIn](www.linkedin.com/in/jaseemprof)
 
 ## Roadmap
-* Adding MongoDB Database
+
+✅ Add MongoDB Database.
+
+⬜ Add Multiple List.
 
 ## Contributing
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an [issues page](https://github.com/JaseemProf/Todo-list/issues) 

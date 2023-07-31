@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navigation Bar</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <h1 class="title">Todo-List</h1>
-        <ul class="nav-links">
-           <% if (heading === "Today") { %>
-            <li><a href="/" id="active">Home</a></li>
-            <li><a href="/work">Work</a></li>
-           <% } else { %>
-            <li><a href="/" >Home</a></li>
-            <li><a href="/work" id="active">Work</a></li>
-           <% } %>
-        </ul>
+      <h1 class="title">Todo-List</h1>
+      <ul class="nav-links">
+        <% if (heading === "Today") { %>
+        <li><a href="/" id="active">Home</a></li>
+        <li><a href="/work">Work</a></li>
+        <% } else { %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/work" id="active">Work</a></li>
+        <% } %>
+      </ul>
     </nav>
 
     <div class="todo-app">
-        <h2><%=heading%></h2>
-        <ul class="todo-list" id="todo-list">
-            <!-- Todo items will be added dynamically here -->
-            <% tasks.forEach((task)=>{ %>
-                <li class="items">
-                    <div>
-                        <input type="checkbox" >
-                        <p class="item"><%= task %></p>
-                    </div>
-                </li>
-            <% }) %>
-
-        </ul>
-        
-        <form action="/" method="post">
-            <div class="add-todo">
-                <input type="text" id="todo-input" placeholder="New task" name="task" required autocomplete="off">
-                <button type="submit" name="list" value="<%= heading %>">+</button>
+      <h2><%=heading%></h2>
+      <ul class="todo-list" id="todo-list">
+        <!-- Todo items will be added dynamically here -->
+        <% if (locals.tasks) {%> <% tasks.forEach((task)=>{ %>
+        <li class="items">
+          <form action="/delete" method="post">
+            <div>
+              <input type="checkbox" onchange="this.form.submit()" />
+              <input type="hidden" name="id" value="<%= task._id %>" />
+              <input type="hidden" name="list" value="<%= heading %>" />
+              <p class="item"><%= task.item %></p>
             </div>
-        </form>
+          </form>
+        </li>
+        <% }) %> <%}%>
+      </ul>
+
+      <form action="/" method="post">
+        <div class="add-todo">
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="New task"
+            name="task"
+            required
+            autocomplete="off"
+          />
+          <button type="submit" name="list" value="<%= heading %>">+</button>
+        </div>
+      </form>
     </div>
 
-    <div class="footer">
-        ©️ Copyright Jaseem 2023
-    </div>
-
-</body>
+    <div class="footer">©️ Copyright Jaseem 2023</div>
+  </body>
 </html>
