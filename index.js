@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 const app = express();
 const port = 3000;
-const URL = ""; // Paste your URL from MongoDB Atlas
+const URL = process.env.URL; // Paste your URL from MongoDB Atlas
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,7 +15,7 @@ try {
     useNewUrlParser: true,
   });
 } catch (error) {
-  handleError(error);
+  console.log(error);
 }
 const itemSchema = new mongoose.Schema({ item: String });
 const Item = mongoose.model("Item", itemSchema);
