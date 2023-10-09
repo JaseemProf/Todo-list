@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const URL = process.env.URL; // Paste your URL from MongoDB Atlas
 
 app.use(express.static("public"));
